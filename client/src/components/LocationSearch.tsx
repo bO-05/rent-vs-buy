@@ -221,18 +221,9 @@ export function LocationSearch({ onLocationResearched }: LocationSearchProps) {
           });
           const data = await resp.json();
           if (data.text) {
-            // Smart extraction: pull just the location name from the transcribed sentence
-            try {
-              const extractResp = await fetch("/api/extract-location", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ text: data.text }),
-              });
-              const extractData = await extractResp.json();
-              setQuery(extractData.location || data.text);
-            } catch {
-              setQuery(data.text);
-            }
+            // Use the full transcribed text directly — the router agent
+            // will extract location, budget, down payment, mortgage term, etc.
+            setQuery(data.text);
             setError(null);
           } else {
             setError("Could not understand the audio. Please try again or type.");
