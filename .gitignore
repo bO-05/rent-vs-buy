@@ -1,0 +1,30 @@
+node_modules
+dist
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables (NEVER commit API keys)
+.env
+.env.local
+.env.production
+!.env.example
+
+# Replit artifacts (legacy)
+.config/
+.local/
+.replit
+replit.md
+attached_assets/
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temp
+*.tar.gz
+vite.config.ts.*
