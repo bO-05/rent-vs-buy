@@ -21,7 +21,7 @@ export async function transcribeAudio(audioBuffer: Buffer, mimeType: string = "a
             "Authorization": `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-            model: "mistral-small-latest",
+            model: "voxtral-mini-latest",
             messages: [
                 {
                     role: "user",
